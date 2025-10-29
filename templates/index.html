@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Calculadora Flask ✨</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="background"></div>
+
+    <div class="container">
+        <h1>💡 Calculadora de Dos Números</h1>
+        <p class="subtitle">Realiza operaciones básicas con estilo 😎</p>
+
+        <form method="POST" class="calculator-form">
+            <input type="number" step="any" name="numero1" placeholder="🔢 Número 1" required>
+            <input type="number" step="any" name="numero2" placeholder="🔢 Número 2" required>
+
+            <select name="operacion" required>
+                <option value="" disabled selected>Selecciona una operación</option>
+                <option value="suma">➕ Suma</option>
+                <option value="resta">➖ Resta</option>
+                <option value="multiplicacion">✖️ Multiplicación</option>
+                <option value="division">➗ División</option>
+            </select>
+
+            <button type="submit">💫 Calcular</button>
+        </form>
+
+        {% if resultado is not none %}
+            <div class="resultado">
+                <h2>Resultado:</h2>
+                <p>{{ resultado }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
